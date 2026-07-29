@@ -205,7 +205,10 @@ Changing the original idea means modifying multiple lanes again.
 
 ---
 
-# Signal Rack Workflow
+# Part 2 — Signal FX
+
+---
+
 
 Signal Rack separates the **source signal** from its **interpretation**.
 
