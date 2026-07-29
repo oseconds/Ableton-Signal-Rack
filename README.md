@@ -1330,3 +1330,559 @@ The same musical intention can become:
 
 
 through one shared Signal language.
+
+
+---
+
+# Part 4 — Technical Architecture
+
+Signal Rack is designed as a layered system.
+
+The goal is to separate:
+
+- Signal Processing
+- Ableton Integration
+- User Interface
+- External Communication
+
+
+Architecture:
+
+
+    Ableton Live
+
+
+          |
+
+          |
+
+          ▼
+
+
+    Max for Live
+
+
+          |
+
+          |
+
+          ▼
+
+
+    Signal Processing Engine
+
+
+          |
+
+          |
+
+          ▼
+
+
+    Signal Routing Layer
+
+
+          |
+
+          |
+
+          +───────────────+
+          |               |
+          ▼               ▼
+
+
+     Ableton Params     External Systems
+
+
+                         OSC
+
+                         MIDI
+
+                         Serial
+
+                         TouchDesigner
+
+                         Arduino
+
+---
+
+# Max for Live
+
+Max for Live is the core processing environment.
+
+It handles:
+
+- Signal generation
+- Signal transformation
+- Live parameter mapping
+- Automation reading
+- Device communication
+
+
+Core components:
+
+
+    Live API
+
+    |
+
+    +── Parameter Access
+
+    +── Device Control
+
+    +── Automation Data
+
+
+    Max/MSP
+
+    |
+
+    +── Signal Processing
+
+    +── Mapping Logic
+
+    +── Routing
+
+
+    pattr / dict
+
+    |
+
+    +── Preset Storage
+
+    +── Signal State Management
+
+
+---
+
+# Signal Engine
+
+The Signal Engine processes values as reusable objects.
+
+
+Example:
+
+
+    Input Signal
+
+
+    ***************________________
+
+
+            |
+
+            |
+
+            ▼
+
+
+    Signal Processor
+
+
+    Smooth
+
+    Curve
+
+    Jitter
+
+    Delay
+
+    Remap
+
+
+            |
+
+            |
+
+            ▼
+
+
+    Processed Signal
+
+
+    ****////~~~********
+
+
+Each Signal contains its own processing chain.
+
+---
+
+# Signal Data Structure
+
+A Signal is not just a value.
+
+It is a value with behavior.
+
+
+Example:
+
+
+    Signal
+
+
+    {
+
+      value:
+
+      range:
+
+      smoothing:
+
+      curve:
+
+      jitter:
+
+      delay:
+
+      quantize:
+
+      mapping:
+
+    }
+
+
+This allows the same signal to be reused across different systems.
+
+---
+
+# GUI Architecture
+
+## Svelte + Vite
+
+
+Signal Rack uses Svelte + Vite for the interface layer.
+
+
+Why Svelte:
+
+- Lightweight
+- Fast development
+- Component-based UI
+- Suitable for real-time visualization
+
+
+GUI responsibilities:
+
+
+    Signal Graph
+
+
+    +──────────────+
+
+    | Input Signal |
+
+    +──────────────+
+
+            |
+
+            ▼
+
+    +──────────────+
+
+    | Smooth       |
+
+    +──────────────+
+
+            |
+
+            ▼
+
+    +──────────────+
+
+    | Curve        |
+
+    +──────────────+
+
+            |
+
+            ▼
+
+    Output
+
+
+Possible features:
+
+- Signal Flow Editor
+- FX Chain View
+- Curve Editor
+- Motion Presets
+- Real-time Signal Visualization
+
+---
+
+# Max ↔ GUI Communication
+
+The system separates processing and visualization.
+
+
+Architecture:
+
+
+    Svelte GUI
+
+
+          |
+
+          |
+
+          ▼
+
+
+    Communication Layer
+
+
+          |
+
+          |
+
+          ▼
+
+
+    Max for Live
+
+
+          |
+
+          |
+
+          ▼
+
+
+    Ableton Live
+
+
+
+Possible communication methods:
+
+- WebSocket
+- OSC
+- Max messages
+- Shared state data
+
+
+The GUI does not process the signal.
+
+It controls and visualizes the Signal Engine.
+
+---
+
+# External Integration
+
+Signal Rack can communicate with external systems.
+
+
+## TouchDesigner
+
+
+    Signal Rack
+
+
+          |
+
+          ▼
+
+
+          OSC
+
+
+          |
+
+          ▼
+
+
+    TouchDesigner CHOP
+
+
+          |
+
+          ▼
+
+
+    Visual System
+
+
+
+---
+
+## Arduino / Hardware
+
+
+    Signal Rack
+
+
+          |
+
+          ▼
+
+
+    MIDI / OSC / Serial
+
+
+          |
+
+          ▼
+
+
+    Arduino
+
+
+          |
+
+          ▼
+
+
+    Physical Motion
+
+
+
+---
+
+# Development Roadmap
+
+
+## Phase 1 — Signal Core
+
+Goal:
+
+Build the fundamental Signal Processing Layer.
+
+
+Features:
+
+- Signal Value System
+- Smooth
+- Curve
+- Remap
+- Delay
+- Quantize
+
+
+---
+
+## Phase 2 — Max for Live Integration
+
+Goal:
+
+Connect Signal Processing with Ableton.
+
+
+Features:
+
+- Automation Input
+- Macro Mapping
+- Device Parameter Control
+- Live API Integration
+- Preset System
+
+
+---
+
+## Phase 3 — Signal Graph Interface
+
+Goal:
+
+Create a visual workflow.
+
+
+Features:
+
+- Svelte + Vite GUI
+- Signal Node View
+- FX Chain Editor
+- Real-time Graph Display
+
+
+---
+
+## Phase 4 — External Systems
+
+Goal:
+
+Expand Signal Rack beyond Ableton.
+
+
+Features:
+
+- OSC Output
+- MIDI Output
+- Serial Communication
+- TouchDesigner Integration
+- Arduino / Hardware Control
+
+
+---
+
+## Phase 5 — Motion Library
+
+
+Goal:
+
+Create reusable movement behaviors.
+
+
+Examples:
+
+
+    Mechanical
+
+    Smooth High
+
+    Curve Linear
+
+    Jitter Off
+
+
+
+    Organic
+
+    Smooth Medium
+
+    Curve Ease
+
+    Jitter 20%
+
+
+
+    Cinematic
+
+    Delay Long
+
+    Curve Slow
+
+    Jitter Low
+
+
+
+---
+
+# Vision
+
+Signal Rack is not another modulation device.
+
+It is a Control Signal Infrastructure for creative systems.
+
+
+Automation is the source.
+
+Signal Processing is the language.
+
+Every system interprets the same movement differently.
+
+
+One movement.
+
+Multiple interpretations.
+
+
+Sound.
+
+Light.
+
+Motion.
+
+Visuals.
+
+Physical Interaction.
+
+
+Signal Rack aims to create a unified workflow where musical ideas can move beyond the timeline and become a shared language between digital and physical systems.
