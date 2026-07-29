@@ -1266,7 +1266,7 @@ Result:
 
     ________////********
 
-
+   
 ---
 
 # Organic
@@ -1276,4 +1276,57 @@ For natural movement.
 
     Smooth       Medium
 
-   
+    Curve        Ease
+
+    Jitter       20%
+
+    Wet          30%
+
+
+Result:
+
+
+    ____////~~~********
+
+
+---
+
+# Cinematic
+
+For slow dramatic motion.
+
+
+    Smooth       High
+
+    Curve        Slow
+
+    Delay        Long
+
+    Jitter       Low
+
+
+Result:
+
+
+    ___________////********
+
+
+---
+
+# Beyond Modulation
+
+Signal Rack is not only a modulation tool.
+
+It is a way to design movement.
+
+
+The same musical intention can become:
+
+- Sound
+- Light
+- Motion
+- Visuals
+- Physical Interaction
+
+
+through one shared Signal language.
