@@ -3,7 +3,7 @@
 
 ---
 
-# Overview
+## Overview
 
 Signal Rack은 Ableton Live 안에서 Control Signal을 Audio Signal처럼 다루기 위한 Signal Processing Layer이다.
 
@@ -23,45 +23,52 @@ Audio Effect Rack처럼 Control Signal을:
 
 ---
 
-# Table of Contents
+## Table of Contents
 
-## Part 1 — Concept
-- Why Signal Rack
-- Main Concept
-- Core Philosophy
+- [Overview](#overview)
 
-## Part 2 — Signal FX
-- Smooth
-- Curve
-- Jitter
-- Delay
-- Quantize
-- Remap
-- Normalize
+- [Part 1 - Concept](#part-1---concept)
+  - [Why Signal Rack](#why-signal-rack)
+  - [The Idea](#the-idea)
+  - [Existing Workflow](#existing-workflow)
+  - [Signal Rack Workflow](#signal-rack-workflow)
+  - [Core Philosophy](#core-philosophy)
 
-## Part 3 — Real-world Examples
-- Lighting Control
-- Robot Motion
-- TouchDesigner Integration
-- Arduino / Hardware
-- Shared Signal Architecture
-- Motion Presets
+- [Part 2 - Signal FX](#part-2---signal-fx)
+  - [Smooth](#smooth)
+  - [Curve](#curve)
+  - [Jitter](#jitter)
+  - [Jitter Wet](#jitter-wet)
+  - [Delay](#delay)
+  - [Quantize](#quantize)
+  - [Remap](#remap)
+  - [Normalize](#normalize)
+  - [Signal FX Chain](#signal-fx-chain)
+  - [Signal Translation](#signal-translation)
 
-## Part 4 — Technical Architecture
-- Max for Live
-- Signal Engine
-- Svelte + Vite GUI
-- External Integration
-- Roadmap
-- Vision
+- [Part 3 - Real-world Examples](#part-3---real-world-examples)
+  - [Lighting Control](#example-1---lighting-control)
+  - [Robot Motion](#example-2---robot-motion)
+  - [TouchDesigner Integration](#example-3---touchdesigner-integration)
+  - [Arduino / Hardware Control](#example-4---arduino--hardware-control)
+  - [Shared Signal Architecture](#example-5---shared-signal-architecture)
+  - [Motion Presets](#example-6---motion-presets)
 
+- [Part 4 - Technical Architecture](#part-4---technical-architecture)
+  - [Max for Live](#max-for-live)
+  - [Signal Engine](#signal-engine)
+  - [GUI Architecture](#gui-architecture)
+  - [Max ↔ GUI Communication](#max--gui-communication)
+  - [External Integration](#external-integration)
+  - [Development Roadmap](#development-roadmap)
+  - [Vision](#vision)
 ---
 
-# Part 1 — Concept
+## Part 1 — Concept
 
 
 
-# Why Signal Rack
+### Why Signal Rack
 
 Ableton Live provides powerful tools for controlling parameters through:
 
@@ -100,7 +107,7 @@ The same musical idea is recreated multiple times.
 
 ---
 
-# The Idea
+### The Idea
 
 Signal Rack introduces a new Control Signal Processing Layer between Automation and Destination Parameters.
 
@@ -134,7 +141,7 @@ A single musical movement can be processed and interpreted differently depending
 
 ---
 
-# Existing Workflow
+### Existing Workflow
 
 A single musical movement often needs to control multiple destinations.
 
@@ -205,7 +212,7 @@ Changing the original idea means modifying multiple lanes again.
 
 ---
 
-# Part 2 — Signal FX
+## Part 2 — Signal FX
 
 
 
@@ -278,7 +285,7 @@ Each destination creates its own interpretation.
 ---
 
 
-# Core Philosophy
+### Core Philosophy
 
 
 Signal Rack extends the concept of Audio Effects into Control Signal Processing.
@@ -343,7 +350,7 @@ The goal is not to create more automation.
 The goal is to create a reusable language for movement
 
 ---
-# Signal FX
+### Signal FX
 
 Signal Rack processes Control Signals through modular Signal Effects.
 
@@ -418,7 +425,7 @@ Control Signal
 
 ---
 
-# Smooth
+### Smooth
 
 Smooth reduces sudden changes in a signal.
 
@@ -454,7 +461,7 @@ A sudden parameter change becomes continuous movement.
 
 ---
 
-# Curve
+### Curve
 
 Curve changes the response shape of a signal.
 
@@ -493,7 +500,7 @@ Curve changes the feeling of movement without changing the original timing.
 
 ---
 
-# Jitter
+### Jitter
 
 Jitter adds controlled variation to a signal.
 
@@ -534,11 +541,11 @@ Applications:
 
 ---
 
-# Jitter Wet
+### Jitter Wet
 
 Wet controls how much of the processed signal is mixed with the original.
 
-## Wet 0%
+#### Wet 0%
 
 Original signal only.
 
@@ -549,7 +556,7 @@ Original signal only.
 ```
 
 
-## Wet 30%
+#### Wet 30%
 
 Original movement remains dominant.
 
@@ -563,7 +570,7 @@ Small variations are added.
 ```
 
 
-## Wet 100%
+#### Wet 100%
 
 The signal is heavily controlled by the jitter process.
 
@@ -585,7 +592,7 @@ depending on Wet amount.
 
 ---
 
-# Delay
+### Delay
 
 Delay offsets a signal in time.
 
@@ -643,7 +650,7 @@ One event can create multiple responses over time.
 
 ---
 
-# Remap
+### Remap
 
 Remap changes the relationship between Input and Output values.
 
@@ -658,7 +665,7 @@ Examples:
 - Control signal → Hardware range
 
 
-## Original Mapping
+### Original Mapping
 
 Input and Output have the same range.
 
@@ -679,7 +686,7 @@ Output
 ```
 
 
-## Compressed Range
+### Compressed Range
 
 Input still reaches 127,
 but output is limited.
@@ -701,7 +708,7 @@ Output
 ```
 
 
-## Inverted Mapping
+### Inverted Mapping
 
 The signal direction changes.
 
@@ -726,7 +733,7 @@ Remap allows one signal to communicate with different systems.
 
 ---
 
-# Normalize
+### Normalize
 
 Normalize converts different signal scales into a consistent format.
 
@@ -777,7 +784,7 @@ Normalization allows different signal sources to work inside the same system.
 
 ---
 
-# Quantize
+### Quantize
 
 Quantize converts continuous movement into discrete steps.
 
@@ -806,7 +813,7 @@ Useful for:
 
 ---
 
-# Signal FX Chain
+### Signal FX Chain
 
 Signal Effects can be combined like an Audio Effect Rack.
 
@@ -863,7 +870,7 @@ Different chains create different interpretations of the same source signal.
 
 ---
 
-# Signal Translation
+### Signal Translation
 
 Signal FX does not only modify values.
 
@@ -916,7 +923,7 @@ The goal is a reusable language for movement.
 
 ---
 
-# Part 3 — Real-world Examples
+## Part 3 — Real-world Examples
 
 Signal Rack is designed for situations where one musical idea needs to control multiple systems.
 
@@ -933,7 +940,7 @@ Signal Rack creates one shared Control Signal and lets each destination interpre
 
 ---
 
-# Example 1 — Lighting Control
+### Example 1 — Lighting Control
 
 ## Music → Light
 
@@ -1012,7 +1019,7 @@ Possible applications:
 
 ---
 
-# Example 2 — Robot Motion
+### Example 2 — Robot Motion
 
 ## Music → Physical Movement
 
@@ -1087,7 +1094,7 @@ Possible applications:
 
 ---
 
-# Example 3 — TouchDesigner Integration
+### Example 3 — TouchDesigner Integration
 
 ## Ableton → TouchDesigner
 
@@ -1195,7 +1202,7 @@ Example:
 
 ---
 
-# Example 4 — Arduino / Hardware Control
+### Example 4 — Arduino / Hardware Control
 
 ## Ableton → Physical World
 
@@ -1301,7 +1308,7 @@ Applications:
 
 ---
 
-# Example 5 — Shared Signal Architecture
+### Example 5 — Shared Signal Architecture
 
 The core idea of Signal Rack:
 
@@ -1348,7 +1355,7 @@ The processing defines the behavior.
 
 ---
 
-# Example 6 — Motion Presets
+### Example 6 — Motion Presets
 
 Signal processing can be saved as reusable Motion Presets.
 
@@ -1357,7 +1364,7 @@ Signal Rack stores movement behavior.
 
 ---
 
-# Mechanical
+#### Mechanical
 
 For machines and precise movement.
 
@@ -1379,7 +1386,7 @@ Result:
    
 ---
 
-# Organic
+#### Organic
 
 For natural movement.
 
@@ -1401,7 +1408,7 @@ Result:
 
 ---
 
-# Cinematic
+#### Cinematic
 
 For slow dramatic motion.
 
@@ -1423,7 +1430,7 @@ Result:
 
 ---
 
-# Beyond Modulation
+### Beyond Modulation
 
 Signal Rack is not only a modulation tool.
 
@@ -1444,7 +1451,7 @@ through one shared Signal language.
 
 ---
 
-# Part 4 — Technical Architecture
+## Part 4 — Technical Architecture
 
 Signal Rack is designed as a layered system.
 
@@ -1516,7 +1523,7 @@ Architecture:
 
 ---
 
-# Max for Live
+### Max for Live
 
 Max for Live is the core processing environment.
 
@@ -1565,7 +1572,7 @@ Core components:
 
 ---
 
-# Signal Engine
+### Signal Engine
 
 The Signal Engine processes values as reusable objects.
 
@@ -1617,7 +1624,7 @@ Each Signal contains its own processing chain.
 
 ---
 
-# Signal Data Structure
+### Signal Data Structure
 
 A Signal is not just a value.
 
@@ -1655,9 +1662,9 @@ This allows the same signal to be reused across different systems.
 
 ---
 
-# GUI Architecture
+### GUI Architecture
 
-## Svelte + Vite
+#### Svelte + Vite
 
 
 Signal Rack uses Svelte + Vite for the interface layer.
@@ -1720,7 +1727,7 @@ Possible features:
 
 ---
 
-# Max ↔ GUI Communication
+### Max ↔ GUI Communication
 
 The system separates processing and visualization.
 
@@ -1776,7 +1783,7 @@ It controls and visualizes the Signal Engine.
 
 ---
 
-# External Integration
+### External Integration
 
 Signal Rack can communicate with external systems.
 
@@ -1847,7 +1854,7 @@ Signal Rack can communicate with external systems.
 
 ---
 
-# Development Roadmap
+### Development Roadmap
 
 
 ## Phase 1 — Signal Core
@@ -1869,7 +1876,7 @@ Features:
 
 ---
 
-## Phase 2 — Max for Live Integration
+### Phase 2 — Max for Live Integration
 
 Goal:
 
@@ -1887,7 +1894,7 @@ Features:
 
 ---
 
-## Phase 3 — Signal Graph Interface
+### Phase 3 — Signal Graph Interface
 
 Goal:
 
@@ -1904,7 +1911,7 @@ Features:
 
 ---
 
-## Phase 4 — External Systems
+### Phase 4 — External Systems
 
 Goal:
 
@@ -1922,7 +1929,7 @@ Features:
 
 ---
 
-## Phase 5 — Motion Library
+### Phase 5 — Motion Library
 
 
 Goal:
@@ -1965,7 +1972,7 @@ Examples:
 
 ---
 
-# Vision
+## Vision
 
 Signal Rack is not another modulation device.
 
