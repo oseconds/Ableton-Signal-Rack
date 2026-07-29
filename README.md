@@ -1383,7 +1383,7 @@ through one shared Signal language.
 
 ---
 
-## Part 4 — Technical Architecture
+## Part 4 - Technical Architecture
 
 Signal Rack is designed as a layered system.
 
