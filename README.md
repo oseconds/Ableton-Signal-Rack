@@ -7,9 +7,8 @@
 
 Signal Rack은 Ableton Live 안에서 Control Signal을 Audio Signal처럼 다루기 위한 Signal Processing Layer이다.
 
-기존 Ableton에서는 Automation, Macro, LFO, Envelope 등을 통해 Parameter를 제어할 수 있지만, Audio Visual 작업이나 Interactive System에서는 Control Signal을 관리하는 새로운 방식이 필요하다.
-
-Signal Rack은 Automation과 Modulation 사이에 Signal Processing Layer를 추가한다.
+Automation과 Modulation 사이에 새로운 Control Layer를 추가하여,
+기존 Parameter 제어 방식을 확장한다.
 
 Audio Effect Rack처럼 Control Signal을:
 
@@ -20,8 +19,43 @@ Audio Effect Rack처럼 Control Signal을:
 
 할 수 있도록 설계한다.
 
-기존의 Parameter 제어 방식을 확장하여,
 하나의 음악적 움직임을 Audio, Visual, Hardware 시스템 전체로 확장하는 것을 목표로 한다.
+
+---
+
+# Table of Contents
+
+## Part 1 — Concept
+- Why Signal Rack
+- Main Concept
+- Core Philosophy
+
+## Part 2 — Signal FX
+- Smooth
+- Curve
+- Jitter
+- Delay
+- Quantize
+- Remap
+- Normalize
+
+## Part 3 — Real-world Examples
+- Lighting Control
+- Robot Motion
+- TouchDesigner Integration
+- Arduino / Hardware
+- Shared Signal Architecture
+- Motion Presets
+
+## Part 4 — Technical Architecture
+- Max for Live
+- Signal Engine
+- Svelte + Vite GUI
+- External Integration
+- Roadmap
+- Vision
+
+---
 
 ---
 
