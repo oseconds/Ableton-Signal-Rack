@@ -35,7 +35,6 @@ Audio Effect Rack처럼 Control Signal을:
   - [The Idea](#the-idea)
   - [Existing Workflow](#existing-workflow)
   - [Signal Rack Workflow](#signal-rack-workflow)
-  - [Core Philosophy](#core-philosophy)
 
 - [Part 2 - Signal FX](#part-2---signal-fx)
   - [Smooth](#smooth)
