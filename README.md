@@ -229,3 +229,576 @@ A single musical movement can become:
 
 
 without creating separate automation data for every destination.
+
+
+
+---
+# Signal FX
+
+Signal Rack processes Control Signals through modular Signal Effects.
+
+Each Signal FX changes the behavior of a signal without changing the original source.
+
+The concept is similar to Audio Effects:
+
+```
+Audio Signal
+
+      │
+
+      ▼
+
+     EQ
+
+      │
+
+      ▼
+
+ Compressor
+
+      │
+
+      ▼
+
+    Delay
+
+      │
+
+      ▼
+
+   Reverb
+```
+
+
+Signal Rack applies the same idea to Control Signals:
+
+```
+Control Signal
+
+      │
+
+      ▼
+
+   Smooth
+
+      │
+
+      ▼
+
+    Curve
+
+      │
+
+      ▼
+
+   Jitter
+
+      │
+
+      ▼
+
+    Delay
+
+      │
+
+      ▼
+
+   Remap
+```
+
+---
+
+# Smooth
+
+Smooth reduces sudden changes in a signal.
+
+Useful for:
+
+- Robot motion
+- Lighting fade
+- Camera movement
+- Mechanical control
+
+
+Input:
+
+```
+127 |                  ***************
+    |                  *
+    |                  *
+  0 |******************_______________
+```
+
+
+Smooth 70%:
+
+```
+127 |             ________************
+    |          ___/
+    |       __/
+  0 |******___________________________
+```
+
+
+A sudden parameter change becomes continuous movement.
+
+---
+
+# Curve
+
+Curve changes the response shape of a signal.
+
+The same automation can create different motion characteristics.
+
+Examples:
+
+- Fast start, slow finish
+- Slow start, fast finish
+- Natural acceleration
+- Mechanical response
+
+
+Linear:
+
+```
+00000000000000011111111111111122222222
+```
+
+
+Ease In:
+
+```
+0000000000000000011223345567788999999
+```
+
+
+Ease Out:
+
+```
+0000112233445566778889999999999999999
+```
+
+
+Curve changes the feeling of movement without changing the original timing.
+
+---
+
+# Jitter
+
+Jitter adds controlled variation to a signal.
+
+Unlike random modulation,
+Jitter is a processed layer applied on top of the original movement.
+
+Parameters:
+
+- Amount
+- Speed
+- Wet/Dry
+
+
+Input:
+
+```
+127 |                  ***************
+    |                  *
+  0 |******************_______________
+```
+
+
+Jitter:
+
+```
+127 |             ~~~~********~~~~*****
+    |          ~~    *      ~~ 
+  0 |*********________________________
+```
+
+
+Applications:
+
+- Organic lighting
+- Natural motion
+- Glitch effects
+- Visual instability
+
+---
+
+# Jitter Wet
+
+Wet controls how much of the processed signal is mixed with the original.
+
+## Wet 0%
+
+Original signal only.
+
+```
+127 |                  ***************
+    |                  *
+  0 |******************_______________
+```
+
+
+## Wet 30%
+
+Original movement remains dominant.
+
+Small variations are added.
+
+```
+127 |                ~~***************
+    |             ~~~ *
+    |          ~~~
+  0 |**********_______________________
+```
+
+
+## Wet 100%
+
+The signal is heavily controlled by the jitter process.
+
+```
+127 |       ~~~~********~~~~~~****~~~
+    |    ~~~              ~~~
+    | ~~~
+  0 |~~~______________________________
+```
+
+
+The same automation can become:
+
+- Stable movement
+- Organic movement
+- Unstable movement
+
+depending on Wet amount.
+
+---
+
+# Delay
+
+Delay offsets a signal in time.
+
+Useful for creating:
+
+- Sequential reactions
+- Layered motion
+- Mechanical timing differences
+
+
+Input:
+
+```
+127 |                  ***************
+    |                  *
+  0 |******************_______________
+```
+
+
+Delay:
+
+```
+127 |                        ***************
+    |                        *
+  0 |************************_______________
+```
+
+
+Example:
+
+```
+Music Event
+
+      │
+
+      ▼
+
+Light
+
+      │
+
+      ▼
+
+Robot
+
+      │
+
+      ▼
+
+Camera
+```
+
+
+One event can create multiple responses over time.
+
+---
+
+# Remap
+
+Remap changes the relationship between Input and Output values.
+
+Instead of changing the source signal,
+Remap changes how the signal is interpreted.
+
+Examples:
+
+- MIDI value → Filter frequency
+- Automation → Servo angle
+- Audio level → Visual scale
+- Control signal → Hardware range
+
+
+## Original Mapping
+
+Input and Output have the same range.
+
+```
+Output
+
+127 |                         *
+    |
+    |
+ 64 |              *
+    |
+    |
+  0 |*________________________________
+
+     0        64       127
+
+              Input
+```
+
+
+## Compressed Range
+
+Input still reaches 127,
+but output is limited.
+
+```
+Output
+
+127 |
+    |
+ 64 |
+    |                         *
+ 32 |              *
+    |
+  0 |*________________________________
+
+     0        64       127
+
+              Input
+```
+
+
+## Inverted Mapping
+
+The signal direction changes.
+
+```
+Output
+
+127 |*
+    |
+    |
+ 64 |              *
+    |
+    |
+  0 |                         *
+
+     0        64       127
+
+              Input
+```
+
+
+Remap allows one signal to communicate with different systems.
+
+---
+
+# Normalize
+
+Normalize converts different signal scales into a consistent format.
+
+
+Example:
+
+
+```
+MIDI CC
+
+0 ───────────────── 127
+
+
+          │
+
+
+          ▼
+
+
+Normalized Signal
+
+0.0 ─────────────── 1.0
+```
+
+
+or:
+
+
+```
+Audio Level
+
+-60dB ───────────── 0dB
+
+
+          │
+
+
+          ▼
+
+
+Control Signal
+
+0.0 ─────────────── 1.0
+```
+
+
+Normalization allows different signal sources to work inside the same system.
+
+---
+
+# Quantize
+
+Quantize converts continuous movement into discrete steps.
+
+
+Before:
+
+```
+000000111223344556677889999999
+```
+
+
+After:
+
+```
+000000000111111111222222222333
+```
+
+
+Useful for:
+
+- Step lighting
+- Beat synchronized motion
+- Trigger systems
+- Digital-style movement
+
+
+---
+
+# Signal FX Chain
+
+Signal Effects can be combined like an Audio Effect Rack.
+
+Example:
+
+```
+MASTER SIGNAL
+
+
+***************________________
+
+
+        │
+
+
+        ▼
+
+
+Smooth 70%
+
+
+        │
+
+
+        ▼
+
+
+Curve Ease In Out
+
+
+        │
+
+
+        ▼
+
+
+Jitter Wet 20%
+
+
+        │
+
+
+        ▼
+
+
+OUTPUT
+
+
+****////~~~~****************
+```
+
+
+Different chains create different interpretations of the same source signal.
+
+---
+
+# Signal Translation
+
+Signal FX does not only modify values.
+
+It translates behaviors between different systems.
+
+A single control signal can become:
+
+```
+Automation
+
+      │
+
+      ▼
+
+Filter Movement
+
+
+Automation
+
+      │
+
+      ▼
+
+Lighting Pattern
+
+
+Automation
+
+      │
+
+      ▼
+
+Robot Motion
+
+
+Automation
+
+      │
+
+      ▼
+
+Visual Interaction
+```
+
+
+The goal is not more modulation.
+
+The goal is a reusable language for movement.
