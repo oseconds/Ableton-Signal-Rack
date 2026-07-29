@@ -215,17 +215,48 @@ Changing the original idea means modifying multiple lanes again.
 
 ---
 
-## Part 2 — Signal FX
+---
+
+### Signal Rack Workflow
 
 
+One source signal can be shared across multiple systems.
 
 
-Signal Rack separates the **source signal** from its **interpretation**.
+    MASTER SIGNAL
 
-Instead of creating multiple independent automations, create one reusable Master Signal.
 
-Each destination receives its own Signal FX Chain.
+    ***************________________
 
+
+                |
+
+
+        ┌───────┼────────┐
+        |       |        |
+        ▼       ▼        ▼
+
+
+     FILTER  LIGHT   ROBOT
+
+
+     Smooth  Jitter  Delay
+
+     Curve   Wet     Remap
+
+
+        ▼       ▼        ▼
+
+
+    ****////  ***~~~   ___////****
+
+
+Same source.
+
+Different interpretation.
+
+---
+ 
 
 ```
 ONE MUSICAL MOVEMENT
@@ -285,75 +316,9 @@ The source remains consistent.
 
 Each destination creates its own interpretation.
 
----
-
-
-### Core Philosophy
-
-
-Signal Rack extends the concept of Audio Effects into Control Signal Processing.
-
-
-Audio Workflow:
-
-
-    Audio Signal
-
-          |
-
-          ▼
-
-          EQ
-
-          |
-
-          ▼
-
-      Compressor
-
-          |
-
-          ▼
-
-        Delay
-
-
-Control Signal Workflow:
-
-
-    Automation
-
-          |
-
-          ▼
-
-        Smooth
-
-          |
-
-          ▼
-
-         Curve
-
-          |
-
-          ▼
-
-        Jitter
-
-          |
-
-          ▼
-
-        Remap
-
-
-The goal is not to create more automation.
-
-The goal is to create a reusable language for movement
 
 ---
-### Signal FX
+## Part 2 - Signal FX
 
 Signal Rack processes Control Signals through modular Signal Effects.
 
