@@ -2,7 +2,7 @@
 ## Control Signal Processing Layer for Ableton Live
 
 
-![previz](./1785327224229.png)
+![previz](./cover.svg)
 
 ---
 
