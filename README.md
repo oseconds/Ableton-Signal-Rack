@@ -57,21 +57,34 @@ Audio Effect Rack처럼 Control Signal을:
 
 ---
 
+# Part 1 — Concept
+
 ---
 
-# Why?
+# Why Signal Rack
 
-Ableton Live는 Automation과 Modulation을 통해 강력한 Parameter 제어 환경을 제공한다.
+Ableton Live provides powerful tools for controlling parameters through:
 
-하지만 Audio Visual 작업이나 Interactive System에서는 다음과 같은 한계가 발생한다.
+- Automation
+- Modulation
+- Macro Mapping
+- LFO
+- Envelope
 
-- 하나의 움직임을 여러 Parameter와 시스템에서 공유하기 어렵다.
-- Automation 이후의 값 변형 과정이 제한적이다.
-- TouchDesigner CHOP과 같은 Signal Flow 기반 관리가 어렵다.
-- 음악적 시간 구조 기반의 움직임 설계가 어렵다.
-- Audio, Visual, Hardware Control을 하나의 Workflow 안에서 관리하기 어렵다.
 
-예를 들어 하나의 Drop 구간이 다음을 동시에 제어한다고 생각하면:
+However, when working with Audio Visual systems or interactive environments, control data becomes difficult to manage.
+
+
+Common problems:
+
+- A single movement is difficult to share across multiple parameters and systems.
+- Automation is difficult to reinterpret and reuse after it is created.
+- Signal flow is difficult to visualize and manage like TouchDesigner CHOP.
+- Musical timing and movement behavior are difficult to separate.
+- Audio, Visual, and Hardware control require different workflows.
+
+
+For example, one Drop section may need to control:
 
 - Filter Cutoff
 - Lighting
@@ -80,16 +93,46 @@ Ableton Live는 Automation과 Modulation을 통해 강력한 Parameter 제어 �
 - TouchDesigner Visual
 - OSC Output
 
-각각 별도의 Automation과 Mapping을 만들어야 한다.
 
-같은 음악적 움직임이 여러 곳에서 반복된다.
+Without a shared signal layer, each destination requires its own automation and mapping.
+
+The same musical idea is recreated multiple times.
 
 ---
 
 # The Idea
 
-Signal Rack은 Automation을 단순한 Parameter 값이 아닌,
-재사용 가능한 Control Signal로 취급한다.
+Signal Rack introduces a new Control Signal Processing Layer between Automation and Destination Parameters.
+
+
+Instead of treating Automation as a final parameter value,
+Signal Rack treats it as a reusable Control Signal.
+
+
+    Automation Source
+
+
+            |
+
+
+            ▼
+
+
+    Signal Processing
+
+
+            |
+
+
+            ▼
+
+
+    Multiple Destinations
+
+
+A single musical movement can be processed and interpreted differently depending on its destination.
+
+---
 
 # Existing Workflow
 
@@ -231,40 +274,70 @@ Each destination creates its own interpretation.
 
 ---
 
-# Core Concept
 
-Signal Rack is not about replacing Automation.
-
-It is about adding a processing layer between:
-
-```
-Automation
-
-      │
-
-      ▼
-
-Signal Processing
-
-      │
-
-      ▼
-
-Parameter / System Output
-```
+# Core Philosophy
 
 
-A single musical movement can become:
-
-- A smooth filter transition
-- A noisy lighting modulation
-- A delayed robotic movement
-- A quantized visual trigger
+Signal Rack extends the concept of Audio Effects into Control Signal Processing.
 
 
-without creating separate automation data for every destination.
+Audio Workflow:
 
 
+    Audio Signal
+
+          |
+
+          ▼
+
+          EQ
+
+          |
+
+          ▼
+
+      Compressor
+
+          |
+
+          ▼
+
+        Delay
+
+
+Control Signal Workflow:
+
+
+    Automation
+
+          |
+
+          ▼
+
+        Smooth
+
+          |
+
+          ▼
+
+         Curve
+
+          |
+
+          ▼
+
+        Jitter
+
+          |
+
+          ▼
+
+        Remap
+
+
+The goal is not to create more automation.
+
+The goal is to create a reusable language for movement
 
 ---
 # Signal FX
