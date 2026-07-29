@@ -223,41 +223,6 @@ Changing the original idea means modifying multiple lanes again.
 One source signal can be shared across multiple systems.
 
 
-    MASTER SIGNAL
-
-
-    ***************________________
-
-
-                |
-
-
-        ┌───────┼────────┐
-        |       |        |
-        ▼       ▼        ▼
-
-
-     FILTER  LIGHT   ROBOT
-
-
-     Smooth  Jitter  Delay
-
-     Curve   Wet     Remap
-
-
-        ▼       ▼        ▼
-
-
-    ****////  ***~~~   ___////****
-
-
-Same source.
-
-Different interpretation.
-
----
- 
-
 ```
 ONE MUSICAL MOVEMENT
 
