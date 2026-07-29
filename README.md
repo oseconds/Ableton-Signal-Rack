@@ -855,7 +855,7 @@ The goal is a reusable language for movement.
 
 ---
 
-## Part 3 — Real-world Examples
+## Part 3 - Real-world Examples
 
 Signal Rack is designed for situations where one musical idea needs to control multiple systems.
 
