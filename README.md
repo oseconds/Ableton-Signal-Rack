@@ -59,7 +59,7 @@ Audio Effect Rack처럼 Control Signal을:
 
 # Part 1 — Concept
 
----
+
 
 # Why Signal Rack
 
@@ -207,7 +207,7 @@ Changing the original idea means modifying multiple lanes again.
 
 # Part 2 — Signal FX
 
----
+
 
 
 Signal Rack separates the **source signal** from its **interpretation**.
