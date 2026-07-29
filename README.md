@@ -2,7 +2,7 @@
 ## Control Signal Processing Layer for Ableton Live
 
 
-![mastersig](./cover.svg)
+![mastersig](./signal-metrix.svg)
 
 ---
 
