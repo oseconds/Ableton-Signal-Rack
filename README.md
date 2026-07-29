@@ -57,143 +57,151 @@ Ableton Live는 Automation과 Modulation을 통해 강력한 Parameter 제어 �
 Signal Rack은 Automation을 단순한 Parameter 값이 아닌,
 재사용 가능한 Control Signal로 취급한다.
 
-기존 Workflow:
+# Existing Workflow
+
+A single musical movement often needs to control multiple destinations.
+
+For example:
+
+- Filter opening
+- Light intensity change
+- Robot movement
+- Camera motion
+
+
+However, each destination usually requires its own automation lane.
+
 
 ```
-Filter Automation
-
-***************________________________
+ONE MUSICAL MOVEMENT
 
 
-Light Automation
+        │
+        ▼
 
-***************________________________
+
+┌─────────────────────┐
+│  Filter Cutoff      │
+│                     │
+│  ________********** │
+│                     │
+└─────────────────────┘
 
 
-Robot Automation
+┌─────────────────────┐
+│  Light Brightness   │
+│                     │
+│  ****______________ │
+│                     │
+└─────────────────────┘
 
-***************________________________
+
+┌─────────────────────┐
+│  Robot Position     │
+│                     │
+│  ___****____********│
+│                     │
+└─────────────────────┘
+
+
+┌─────────────────────┐
+│  Camera Movement    │
+│                     │
+│  _________////***** │
+│                     │
+└─────────────────────┘
 ```
 
-Signal Rack Workflow:
 
-```
-MASTER SIGNAL
+Although these lanes represent the same musical intention, they become separate data to manage.
 
-***************________________________
-```
+Each destination requires its own:
 
-하나의 Signal을 여러 목적에 맞게 변형한다.
+- Automation editing
+- Range adjustment
+- Curve design
+- Smoothing
+- Timing correction
+
+
+Changing the original idea means modifying multiple lanes again.
 
 ---
 
-# Signal Rack
+# Signal Rack Workflow
 
-각 Output은 독립적인 Signal FX Chain을 가진다.
+Signal Rack separates the **source signal** from its **interpretation**.
 
-Source Signal은 유지되고,
-각 목적에 맞는 방식으로 해석된다.
+Instead of creating multiple independent automations, create one reusable Master Signal.
+
+Each destination receives its own Signal FX Chain.
 
 
 ```
-                              MASTER SIGNAL
-
-                    ***************________________
+ONE MUSICAL MOVEMENT
 
 
-                                   │
-
-                                   ▼
-
-
-                    +---------------------------+
-                    |       SIGNAL RACK         |
-                    +---------------------------+
+        │
+        ▼
 
 
-          ┌────────────────┬────────────────┬────────────────┐
-          │                │                │                │
-          ▼                ▼                ▼                ▼
+┌─────────────────────┐
+│    MASTER SIGNAL    │
+│                     │
+│  ________********** │
+│                     │
+└─────────────────────┘
 
 
-   FILTER CHAIN     LIGHT CHAIN      ROBOT CHAIN       OSC CHAIN
+        │
 
 
-   Smooth           Smooth           Delay             Quantize
-
-   Curve            Jitter           Curve             Normalize
-
-                    Wet 30%           Remap             Scale
+ ┌──────┼────────┬────────┐
+ │      │        │        │
 
 
-          │                │                │                │
-          ▼                ▼                ▼                ▼
+ ▼      ▼        ▼        ▼
 
 
-   ****////****     ***~~~*****     ____////****      **__**__
+FILTER LIGHT   ROBOT   CAMERA
 
 
-          │                │                │                │
-          ▼                ▼                ▼                ▼
+Smooth Smooth  Delay   Curve
+
+Curve  Jitter  Curve   Remap
+
+       Wet30%
 
 
- Filter Cutoff    LED Brightness   Robot Motion    TouchDesigner
+
+ ▼      ▼        ▼        ▼
+
+
+___////  ****~~~  __////  ***__
+
+
+        │
+
+
+        ▼
+
+
+ Different outputs.
+
+ Same source signal.
 ```
 
-같은 Source Signal이라도:
+The source remains consistent.
 
-- Filter는 부드러운 변화
-- Light는 약간의 흔들림
-- Robot은 느린 움직임
-- OSC는 정량화된 데이터
-
-처럼 서로 다른 결과를 만들 수 있다.
+Each destination creates its own interpretation.
 
 ---
 
-# Signal Processing Concept
+# Core Concept
 
-Signal Rack은 Audio Effect Rack의 Workflow를 Control Signal에 적용한다.
+Signal Rack is not about replacing Automation.
 
-
-Audio Processing:
-
-```
-Audio Signal
-
-      │
-
-      ▼
-
-     EQ
-
-      │
-
-      ▼
-
- Compressor
-
-      │
-
-      ▼
-
-    Delay
-
-      │
-
-      ▼
-
-   Reverb
-
-      │
-
-      ▼
-
-   Output
-```
-
-
-Control Signal Processing:
+It is about adding a processing layer between:
 
 ```
 Automation
@@ -202,182 +210,22 @@ Automation
 
       ▼
 
-    Smooth
+Signal Processing
 
       │
 
       ▼
 
-     Curve
-
-      │
-
-      ▼
-
-    Jitter
-
-      │
-
-      ▼
-
-    Delay
-
-      │
-
-      ▼
-
-    Remap
-
-      │
-
-      ▼
-
-Processed Signal
-```
-
-Audio Effect가 소리를 변화시키듯,
-Signal Rack은 움직임을 변화시킨다.
-
----
-
-# Automation is the Source
-
-Signal Rack은 Ableton Automation을 대체하지 않는다.
-
-Automation은 원본 Signal Source이며,
-Signal Rack은 그 위에 적용되는 Processing Layer이다.
-
-
-```
-INPUT AUTOMATION
-
-
-127 |                  ***************
-    |                  *
-    |                  *
-  0 |******************_______________
-
-
-
-              │
-
-              ▼
-
-
-
-SIGNAL FX
-
-
-Smooth 70%
-
-Curve Ease In Out
-
-Jitter Wet 30%
-
-
-
-              │
-
-              ▼
-
-
-
-PROCESSED SIGNAL
-
-
-127 |             ~~~~~~~~*************
-    |          ___////~~~~************
-    |      ___////
-  0 |*****____________________________
-```
-
-원본 Automation은 유지된다.
-
-Signal Rack은 새로운 해석을 추가한다.
-
----
-
-# Different Outputs, Different Interpretations
-
-하나의 Automation을 수정하면 모든 Output이 함께 변화한다.
-
-하지만 각 Output은 독립적인 Processing을 가진다.
-
-
-```
-MASTER AUTOMATION
-
-
-***************________________________
-
-
-                 │
-
-
-                 ▼
-
-
-        +----------------+
-        | Signal Routing |
-        +----------------+
-
-
-                 │
-
-
-      ┌──────────┼──────────┐
-      │          │          │
-
-
-      ▼          ▼          ▼
-
-
-   FILTER      LIGHT      ROBOT
-
-
- Smooth       Smooth      Delay
-
- Curve        Jitter     Curve
-
-              Wet 30%     Remap
-
-
-      ▼          ▼          ▼
-
-
-****////****  ***~~~***  ____////****
+Parameter / System Output
 ```
 
 
-하나의 음악적 아이디어.
+A single musical movement can become:
 
-여러 개의 다른 움직임.
-
----
-
-# Visual Language
-
-README의 Signal 표현 기준:
+- A smooth filter transition
+- A noisy lighting modulation
+- A delayed robotic movement
+- A quantized visual trigger
 
 
-```
-************   Constant Value
-
-
-____________   Baseline
-
-
-///////////    Smooth / Curve
-
-
-~~~~~~~~~~~    Jitter / Noise
-
-
-│              Signal Flow
-
-
-▼              Processing Stage
-```
-
-Signal Rack은 Control Data를 Audio Effect처럼 다루는 새로운 Workflow를 제안한다.
-```
+without creating separate automation data for every destination.
