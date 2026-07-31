@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="900" height="620" fill="#18181A" rx="12"/>
+
+  <!-- ========================================== -->
+  <!-- PART 1: INITIAL STATE (마스터 신호 2개 피크) -->
+  <!-- ========================================== -->
+  
+  <text x="50" y="40" fill="#00D2FF" font-family="Arial, sans-serif" font-size="14" font-weight="900" letter-spacing="1">1. INITIAL STATE: MASTER SIGNAL WITH 2 PEAKS -> 4 TRANSFORMED SIGNALS</text>
+  <text x="50" y="58" fill="#888888" font-family="Arial, sans-serif" font-size="11">기본 마스터 신호에 2개의 피크(봉우리)가 존재하며, Signal Rack을 통해 각 타겟에 2개의 파형 반응으로 전달됨</text>
+
+  <!-- Initial Master Node (2 Peaks) -->
+  <rect x="50" y="145" width="145" height="55" fill="#1C2630" stroke="#00D2FF" stroke-width="2" rx="6"/>
+  <text x="122" y="167" fill="#00D2FF" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">MASTER (2 PEAKS)</text>
+  <!-- 2 Peak Wave -->
+  <path d="M 65,185 L 75,185 Q 90,165 105,185 Q 120,165 135,185 L 175,185" fill="none" stroke="#00D2FF" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Arrow to Rack -->
+  <path d="M 195,172 L 230,172" fill="none" stroke="#00D2FF" stroke-width="2"/>
+  <polygon points="225,167 235,172 225,177" fill="#00D2FF"/>
+
+  <!-- Signal Rack Box -->
+  <rect x="235" y="145" width="130" height="55" fill="#222226" stroke="#00FF88" stroke-width="2" rx="6"/>
+  <text x="300" y="168" fill="#00FF88" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">SIGNAL RACK</text>
+  <text x="300" y="184" fill="#AAAAAA" font-family="monospace" font-size="9" text-anchor="middle">1:N Transfer Matrix</text>
+
+  <!-- Fan-out Bus Lines -->
+  <path d="M 365,172 L 400,172" fill="none" stroke="#00FF88" stroke-width="2"/>
+  <path d="M 400,95 L 400,245" fill="none" stroke="#55555A" stroke-width="2"/>
+
+  <path d="M 400,95 L 425,95" fill="none" stroke="#FF9900" stroke-width="2"/>
+  <path d="M 400,145 L 425,145" fill="none" stroke="#00FF88" stroke-width="2"/>
+  <path d="M 400,195 L 425,195" fill="none" stroke="#FF007A" stroke-width="2"/>
+  <path d="M 400,245 L 425,245" fill="none" stroke="#B066FF" stroke-width="2"/>
+
+  <!-- Target 1: Filter (2 Bumps) -->
+  <rect x="425" y="77" width="425" height="36" fill="#222226" stroke="#FF9900" stroke-width="1.5" rx="4"/>
+  <text x="440" y="100" fill="#FF9900" font-family="monospace" font-size="11" font-weight="bold">FILTER</text>
+  <path d="M 670,103 L 690,103 Q 710,85 730,103 Q 750,85 770,103 L 820,103" fill="none" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Target 2: Light (Jitter with 2 active zones) -->
+  <rect x="425" y="127" width="425" height="36" fill="#222226" stroke="#00FF88" stroke-width="1.5" rx="4"/>
+  <text x="440" y="150" fill="#00FF88" font-family="monospace" font-size="11" font-weight="bold">LIGHT</text>
+  <path d="M 670,150 L 680,140 L 690,155 L 700,138 L 715,150 L 725,140 L 735,155 L 750,145 L 780,150" fill="none" stroke="#00FF88" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- Target 3: Robot (2 Delayed Bumps) -->
+  <rect x="425" y="177" width="425" height="36" fill="#222226" stroke="#FF007A" stroke-width="1.5" rx="4"/>
+  <text x="440" y="200" fill="#FF007A" font-family="monospace" font-size="11" font-weight="bold">ROBOT</text>
+  <path d="M 670,203 L 710,203 Q 730,185 750,203 Q 770,185 790,203 L 820,203" fill="none" stroke="#FF007A" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Target 4: Camera (2 Step Blocks) -->
+  <rect x="425" y="227" width="425" height="36" fill="#222226" stroke="#B066FF" stroke-width="1.5" rx="4"/>
+  <text x="440" y="250" fill="#B066FF" font-family="monospace" font-size="11" font-weight="bold">CAMERA</text>
+  <path d="M 670,250 L 690,250 L 690,235 L 730,235 L 730,250 L 750,250 L 750,235 L 790,235 L 790,252 L 820,252" fill="none" stroke="#B066FF" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Divider -->
+  <path d="M 50,290 L 850,290" fill="none" stroke="#33333A" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- ========================================== -->
+  <!-- PART 2: MODIFIED STATE (두 번째 피크 제거)   -->
+  <!-- ========================================== -->
+
+  <text x="50" y="325" fill="#00FF88" font-family="Arial, sans-serif" font-size="14" font-weight="900" letter-spacing="1">2. AFTER EDIT: 2ND PEAK REMOVED -> ALL 4 SIGNALS UPDATE INSTANTLY (FLAT)</text>
+  <text x="50" y="343" fill="#888888" font-family="Arial, sans-serif" font-size="11">마스터 신호에서 두 번째 피크를 제거하자, 신호 랙을 거쳐 각 타겟 신호의 해당 반응 구간이 실시간 평탄화됨</text>
+
+  <!-- Modified Master Node (2nd peak removed -> flat right side) -->
+  <rect x="50" y="425" width="145" height="60" fill="#15333F" stroke="#00FF88" stroke-width="2" rx="6"/>
+  <text x="122" y="445" fill="#00FF88" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">2ND PEAK REMOVED</text>
+  <!-- 1 Peak + Flat Wave -->
+  <path d="M 65,470 L 75,470 Q 90,435 105,470 L 175,470" fill="none" stroke="#00FF88" stroke-width="2" stroke-linecap="round"/>
+  <!-- Ghost outline of removed peak -->
+  <path d="M 105,470 Q 120,435 135,470" fill="none" stroke="#FF4444" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="122" y="495" fill="#00FF88" font-family="monospace" font-size="9" font-weight="bold" text-anchor="middle">⚡ 두번째 피크 제거됨</text>
+
+  <!-- Arrow to Rack -->
+  <path d="M 195,455 L 230,455" fill="none" stroke="#00FF88" stroke-width="2"/>
+  <polygon points="225,450 235,455 225,460" fill="#00FF88"/>
+
+  <!-- Signal Rack Box -->
+  <rect x="235" y="425" width="130" height="60" fill="#222226" stroke="#00FF88" stroke-width="2" rx="6"/>
+  <text x="300" y="448" fill="#00FF88" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">SIGNAL RACK</text>
+  <text x="300" y="466" fill="#AAAAAA" font-family="monospace" font-size="9" text-anchor="middle">1:N Transfer Matrix</text>
+
+  <!-- Fan-out Bus Lines -->
+  <path d="M 365,455 L 400,455" fill="none" stroke="#00FF88" stroke-width="2"/>
+  <path d="M 400,375 L 400,525" fill="none" stroke="#55555A" stroke-width="2"/>
+
+  <path d="M 400,375 L 425,375" fill="none" stroke="#FF9900" stroke-width="2"/>
+  <path d="M 400,425 L 425,425" fill="none" stroke="#00FF88" stroke-width="2"/>
+  <path d="M 400,475 L 425,475" fill="none" stroke="#FF007A" stroke-width="2"/>
+  <path d="M 400,525 L 425,525" fill="none" stroke="#B066FF" stroke-width="2"/>
+
+  <!-- Target 1: Filter (2nd bump removed -> flat) -->
+  <rect x="425" y="357" width="425" height="36" fill="#222226" stroke="#FF9900" stroke-width="1.5" rx="4"/>
+  <text x="440" y="380" fill="#FF9900" font-family="monospace" font-size="11" font-weight="bold">FILTER</text>
+  <path d="M 670,383 L 690,383 Q 710,355 730,383 L 820,383" fill="none" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Target 2: Light (Jitter stops on 2nd half) -->
+  <rect x="425" y="407" width="425" height="36" fill="#222226" stroke="#00FF88" stroke-width="1.5" rx="4"/>
+  <text x="440" y="430" fill="#00FF88" font-family="monospace" font-size="11" font-weight="bold">LIGHT</text>
+  <path d="M 670,430 L 680,415 L 690,438 L 705,415 L 720,430 L 820,430" fill="none" stroke="#00FF88" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- Target 3: Robot (2nd delayed bump removed) -->
+  <rect x="425" y="457" width="425" height="36" fill="#222226" stroke="#FF007A" stroke-width="1.5" rx="4"/>
+  <text x="440" y="480" fill="#FF007A" font-family="monospace" font-size="11" font-weight="bold">ROBOT</text>
+  <path d="M 670,483 L 710,483 Q 730,455 750,483 L 820,483" fill="none" stroke="#FF007A" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Target 4: Camera (2nd step block removed) -->
+  <rect x="425" y="507" width="425" height="36" fill="#222226" stroke="#B066FF" stroke-width="1.5" rx="4"/>
+  <text x="440" y="530" fill="#B066FF" font-family="monospace" font-size="11" font-weight="bold">CAMERA</text>
+  <path d="M 670,530 L 690,530 L 690,510 L 735,510 L 735,532 L 820,532" fill="none" stroke="#B066FF" stroke-width="2" stroke-linejoin="round"/>
+
+</svg>
