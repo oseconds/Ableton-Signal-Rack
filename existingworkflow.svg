@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 780" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="900" height="780" fill="#18181A" rx="12"/>
+
+  <!-- ========================================== -->
+  <!-- SECTION 1: EXISTING WORKFLOW (The Pain)    -->
+  <!-- ========================================== -->
+  
+  <text x="70" y="50" fill="#FF5555" font-family="Arial, sans-serif" font-size="16" font-weight="900" letter-spacing="1">EXISTING WORKFLOW</text>
+  <text x="70" y="68" fill="#888888" font-family="Arial, sans-serif" font-size="12">Multiple separate lanes, repeated manual editing.</text>
+
+  <!-- Input Movement Node -->
+  <rect x="70" y="85" width="200" height="40" fill="#2A1F1F" stroke="#FF5555" stroke-width="2" rx="6"/>
+  <text x="170" y="110" fill="#FF5555" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">ONE MUSICAL MOVEMENT</text>
+
+  <!-- Branching Messy Lines -->
+  <path d="M 170,125 L 170,150 L 300,150" fill="none" stroke="#FF5555" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M 170,150 L 300,195" fill="none" stroke="#FF5555" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M 170,150 L 300,240" fill="none" stroke="#FF5555" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M 170,150 L 300,285" fill="none" stroke="#FF5555" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- Separate Lanes -->
+  <g transform="translate(300, 130)">
+    <rect x="0" y="0" width="530" height="35" fill="#222225" stroke="#443333" stroke-width="1.5" rx="4"/>
+    <text x="15" y="22" fill="#DDDDDD" font-family="monospace" font-size="11">Filter Cutoff Lane</text>
+    <path d="M 220,17 Q 370,2 510,22" fill="none" stroke="#FF5555" stroke-width="2"/>
+
+    <rect x="0" y="45" width="530" height="35" fill="#222225" stroke="#443333" stroke-width="1.5" rx="4"/>
+    <text x="15" y="67" fill="#DDDDDD" font-family="monospace" font-size="11">Light Brightness Lane</text>
+    <path d="M 220,62 Q 320,80 510,55" fill="none" stroke="#FF5555" stroke-width="2"/>
+
+    <rect x="0" y="90" width="530" height="35" fill="#222225" stroke="#443333" stroke-width="1.5" rx="4"/>
+    <text x="15" y="112" fill="#DDDDDD" font-family="monospace" font-size="11">Robot Position Lane</text>
+    <path d="M 220,105 L 260,122 L 300,102 L 340,122 L 510,110" fill="none" stroke="#FF5555" stroke-width="2"/>
+
+    <rect x="0" y="135" width="530" height="35" fill="#222225" stroke="#443333" stroke-width="1.5" rx="4"/>
+    <text x="15" y="157" fill="#DDDDDD" font-family="monospace" font-size="11">Camera Movement Lane</text>
+    <path d="M 220,160 Q 380,135 510,160" fill="none" stroke="#FF5555" stroke-width="2"/>
+  </g>
+
+  <!-- Divider -->
+  <path d="M 70,335 L 830,335" fill="none" stroke="#33333A" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- ========================================== -->
+  <!-- SECTION 2: SIGNAL RACK WORKFLOW (Visual)   -->
+  <!-- ========================================== -->
+
+  <text x="70" y="375" fill="#00D2FF" font-family="Arial, sans-serif" font-size="16" font-weight="900" letter-spacing="1">SIGNAL RACK WORKFLOW</text>
+  <text x="70" y="393" fill="#888888" font-family="Arial, sans-serif" font-size="12">One master signal transformed into distinct behavior outputs.</text>
+
+  <!-- Master Node -->
+  <rect x="70" y="420" width="200" height="45" fill="#1C2630" stroke="#00D2FF" stroke-width="2" rx="6"/>
+  <text x="170" y="440" fill="#00D2FF" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">ONE MUSICAL MOVEMENT</text>
+  <text x="170" y="455" fill="#FFFFFF" font-family="monospace" font-size="9" text-anchor="middle">➔ MASTER SIGNAL</text>
+
+  <!-- Central Core -->
+  <path d="M 270,442 L 340,442" fill="none" stroke="#00D2FF" stroke-width="2.5"/>
+  <polygon points="335,437 345,442 335,447" fill="#00D2FF"/>
+
+  <rect x="345" y="415" width="150" height="55" fill="#222226" stroke="#00FF88" stroke-width="2" rx="6"/>
+  <text x="420" y="438" fill="#00FF88" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">SIGNAL RACK</text>
+  <text x="420" y="455" fill="#AAAAAA" font-family="monospace" font-size="9" text-anchor="middle">1:N Transfer Matrix</text>
+
+  <!-- Fan-out Bus -->
+  <path d="M 495,442 L 540,442" fill="none" stroke="#00FF88" stroke-width="2"/>
+  <path d="M 540,360 L 540,525" fill="none" stroke="#55555A" stroke-width="2"/>
+
+  <path d="M 540,360 L 565,360" fill="none" stroke="#FF9900" stroke-width="2"/>
+  <path d="M 540,415 L 565,415" fill="none" stroke="#00FF88" stroke-width="2"/>
+  <path d="M 540,470 L 565,470" fill="none" stroke="#FF007A" stroke-width="2"/>
+  <path d="M 540,525 L 565,525" fill="none" stroke="#B066FF" stroke-width="2"/>
+
+  <!-- Target 1: Filter + Waveform Preview -->
+  <rect x="565" y="340" width="265" height="40" fill="#222226" stroke="#FF9900" stroke-width="1.5" rx="4"/>
+  <text x="578" y="365" fill="#FF9900" font-family="monospace" font-size="11" font-weight="bold">FILTER</text>
+  <text x="635" y="365" fill="#AAAAAA" font-family="monospace" font-size="10">Smooth Curve</text>
+  <!-- Mini Signal Wave: ___//// -->
+  <path d="M 740,368 L 770,368 Q 790,368 810,348" fill="none" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Target 2: Light + Waveform Preview -->
+  <rect x="565" y="395" width="265" height="40" fill="#222226" stroke="#00FF88" stroke-width="1.5" rx="4"/>
+  <text x="578" y="420" fill="#00FF88" font-family="monospace" font-size="11" font-weight="bold">LIGHT</text>
+  <text x="635" y="420" fill="#AAAAAA" font-family="monospace" font-size="10">Jitter + Wet30%</text>
+  <!-- Mini Signal Wave: ****~~~ (Noisy) -->
+  <path d="M 740,420 L 750,405 L 758,425 L 768,405 L 778,422 L 788,408 L 798,420 L 810,412" fill="none" stroke="#00FF88" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- Target 3: Robot + Waveform Preview -->
+  <rect x="565" y="450" width="265" height="40" fill="#222226" stroke="#FF007A" stroke-width="1.5" rx="4"/>
+  <text x="578" y="475" fill="#FF007A" font-family="monospace" font-size="11" font-weight="bold">ROBOT</text>
+  <text x="635" y="475" fill="#AAAAAA" font-family="monospace" font-size="10">Delay + Curve</text>
+  <!-- Mini Signal Wave: __//// (Delayed) -->
+  <path d="M 740,478 L 770,478 Q 790,478 810,458" fill="none" stroke="#FF007A" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Target 4: Camera + Waveform Preview -->
+  <rect x="565" y="505" width="265" height="40" fill="#222226" stroke="#B066FF" stroke-width="1.5" rx="4"/>
+  <text x="578" y="530" fill="#B066FF" font-family="monospace" font-size="11" font-weight="bold">CAMERA</text>
+  <text x="635" y="530" fill="#AAAAAA" font-family="monospace" font-size="10">Curve Remap</text>
+  <!-- Mini Signal Wave: ***__ (Stepped/Quantized) -->
+  <path d="M 740,530 L 765,530 L 765,515 L 790,515 L 790,532 L 810,532" fill="none" stroke="#B066FF" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Bottom Conclusion Box -->
+  <rect x="250" y="605" width="400" height="40" fill="#222228" stroke="#00D2FF" stroke-width="1" rx="6"/>
+  <text x="450" y="630" fill="#FFFFFF" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="1">Different Outputs. Same Source Signal.</text>
+
+</svg>
