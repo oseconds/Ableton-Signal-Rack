@@ -1,3 +1,5 @@
+```mermaid
+
 graph LR
     subgraph Input_Layer ["1. SOURCE INPUT"]
         direction TB
@@ -29,3 +31,5 @@ graph LR
     Analysis_Layer -- "Normalized MSP Signal (0.-1.)" --> Core_Layer
     UI_CurveData["Svelte UI: Curve JSON"] -- "Fill buffer~" --> Core_Layer
     Core_Layer -- "Processed MSP Signal (-1. to 1.)" --> Output_Layer
+
+```
