@@ -1,4 +1,13 @@
 ```mermaid
+flowchart TD
+    A[Start] --> B{Is it working?}
+    B -- Yes --> C[Great!]
+    B -- No --> D[Debug]
+```
+
+
+
+```mermaid
 
 graph LR
     subgraph Input_Layer [1. SOURCE INPUT]
